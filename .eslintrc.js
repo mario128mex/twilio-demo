@@ -1,5 +1,6 @@
 module.exports = {
   "globals": {
+    "process": true,
     "document": true,
     "console": true,
     "module": true,

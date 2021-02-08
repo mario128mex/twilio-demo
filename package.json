@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "a simple app to make use of twilio API",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node ./src/bin/www",
+    "watch": "nodemon --delay 2.5 ./src/bin/www",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "node_modules/.bin/eslint './src/**/*.js' --ignore-path .eslintignore"
   },
