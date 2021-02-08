@@ -1,5 +1,6 @@
 module.exports = {
   "globals": {
+    "__dirname": true,
     "process": true,
     "document": true,
     "console": true,

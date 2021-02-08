@@ -1,4 +1,7 @@
 const express = require('express');
-let app = express();
+const app = express();
+const {setMiddleware} = require('./app.middleware');
+
+setMiddleware(app);
 
 module.exports = app;
