@@ -16,7 +16,7 @@ const onSuccess = () => {
 };
 
 const onError = (error) => {
-  log.error('Failed to connect to database.')
+  log.error('Failed to connect to database.');
   log.error(error);
 };
 
