@@ -60,5 +60,10 @@ typings/
 # next.js build output
 .next
 
-#visual studio code
+# visual studio code
 .vscode
+
+# Mac OS
+.DS_Store
+.AppleDouble
+.LSOverride
