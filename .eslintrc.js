@@ -15,6 +15,8 @@ module.exports = {
     "sourceType": "module"
   },
   "extends": "eslint:recommended",
-  "rules": {},
+  "rules": {
+    "semi": [2, "always"]
+  },
   "plugins": []
-}
+};
