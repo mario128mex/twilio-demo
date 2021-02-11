@@ -34,11 +34,16 @@ const SpecialistSchema = new Schema({
     required: false,
     maxlength: 15
   }
+}, {
+    toObject: { virtuals: true },
+    toJSON: { virtuals: true }
 });
 
 SpecialistSchema
   .virtual('fullName')
-  .get(() => `${this.firstName} ${this.lastName}`);
+  .get(function() {
+    return `${this.title || ''} ${this.firstName} ${this.lastName}`.trim();
+  });
 
 SpecialistSchema
   .path('country')

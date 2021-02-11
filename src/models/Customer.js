@@ -24,11 +24,16 @@ const CustomerSchema = new Schema({
     required: true,
     maxlength: 3
   }
+}, {
+  toObject: {virtuals: true},
+  toJSON: {virtuals: true}
 });
 
 CustomerSchema
   .virtual('fullName')
-  .get(() => `${this.firstName} ${this.lastName}`);
+  .get(function() {
+    return `${this.firstName} ${this.lastName}`;
+  });
 
 CustomerSchema
   .path('country')
