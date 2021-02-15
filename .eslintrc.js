@@ -13,11 +13,12 @@ module.exports = {
   },
   "parserOptions": {
     "sourceType": "module",
-    "ecmaVersion": 8
+    "ecmaVersion": 2018
   },
   "extends": "eslint:recommended",
   "rules": {
-    "semi": [2, "always"]
+    "semi": [2, "always"],
+    "no-console": ["error", {allow: ["warn", "error"]}]
   },
   "plugins": []
 };

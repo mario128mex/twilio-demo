@@ -17,8 +17,6 @@ module.exports = (params) => {
   `please answer with yes or no if you plan to attend.\n` +
   `Thank you!`;
 
-  console.log({countryCodes, customerCountry, to});
-
   sendSms(message, to)
     .then(message => {
       log.info('Message sent successfully');

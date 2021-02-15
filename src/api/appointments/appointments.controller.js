@@ -1,8 +1,9 @@
 const CreateAppointment = require('../../core/appointments/create-appointment');
-const GetAppointments = require('../../core/appointments/get-appointments');
-const GetAppointmentById = require('../../core/appointments/get-appointment-by-id');
 const DeleteAppointment = require('../../core/appointments/delete-appointment');
+const GetAppointmentById = require('../../core/appointments/get-appointment-by-id');
+const GetAppointments = require('../../core/appointments/get-appointments');
 const UpdateAppointment = require('../../core/appointments/update-appointment');
+const UpdateAppointmentStatus = require('../../core/appointments/update-appointment-status');
 
 const post = (req, res) => {
   CreateAppointment(req.body)
@@ -49,13 +50,31 @@ const update = (req, res) => {
     .catch(handleError(res));
 };
 
+const confirmAppointment = (req, res) => {
+  const {body} = req;
+
+  UpdateAppointmentStatus({status: 'accepted', ...body})
+    .then(() => res.status(200).send('Success!'))
+    .catch(handleError(res));
+};
+
+const cancelAppointment = (req, res) => {
+  const { body } = req;
+
+  UpdateAppointmentStatus({ status: 'canceled', ...body })
+    .then(() => res.status(200).send('Success!'))
+    .catch(handleError(res));
+};
+
 // TODO: this always returns 400 errors, use a middleware instead
 const handleError = (res) => (err) => res.status(400).json({ error: err.toString() });
 
 module.exports = {
-  post,
+  cancelAppointment,
+  confirmAppointment,
   get,
   getById,
+  post,
   remove,
   update
 };
