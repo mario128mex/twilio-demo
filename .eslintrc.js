@@ -5,7 +5,8 @@ module.exports = {
     "document": true,
     "console": true,
     "module": true,
-    "require": true
+    "require": true,
+    "Buffer": true
   },
   "env": {
     "es6": true,

@@ -18,8 +18,14 @@ const countryCodes = {
   MEX: '+52'
 };
 
+const azure = {
+  incomingSmsQueue: 'incoming-sms',
+  storageConnectionString: process.env.AZURE_STORAGE_CONNECTION_STRING
+};
+
 module.exports = {
   appConfig,
+  azure,
   countryCodes,
   dbConfig,
   twilioConfig

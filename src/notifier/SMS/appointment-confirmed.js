@@ -1,4 +1,5 @@
-const {sendSms} = require('../services/twilio');
+const {addSmsToQueue} = require('../services/azure-queue-storage');
+const {azure: {incomingSmsQueue}} = require('../../config');
 const log = require('../../logging');
 
 module.exports = (params) => {
@@ -14,10 +15,6 @@ module.exports = (params) => {
     `scheduled at  ${appointmentDateTime}.\n` +
     `Have a good day!`;
 
-  sendSms(message, specialistPhone)
-    .then(message => {
-      log.info('Message sent successfully');
-      log.info(message);
-    })
-    .catch(err => log.error(err));
+  log.info(`message sent to ${incomingSmsQueue} queue`);
+  addSmsToQueue(message, specialistPhone);
 };
